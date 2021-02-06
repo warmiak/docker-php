@@ -1,12 +1,11 @@
 version: '3'
 services:
 
-  apache:
+  apache-php:
+    container_name: httpd-php
     build:
       context: .
     ports:
       - "8080:80"
     volumes:
       - "./:/var/www/html/web/application"
-      - "./.docker/httpd/z-hostname.conf:/etc/httpd/conf.d/z-hostname.conf"
-
