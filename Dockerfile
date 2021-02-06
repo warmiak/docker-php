@@ -16,9 +16,6 @@ RUN dnf -y update && dnf -y install remi-33.rpm httpd dnf-plugin-config-manager 
 # Enable Remi Repo
 RUN dnf config-manager --set-enabled remi
 
-# Install Phalcon Framework
-# RUN dnf -y install php56-php-phalcon3 php70-php-phalcon3 php71-php-phalcon3 php72-php-phalcon4 php73-php-phalcon4 php74-php-phalcon4
-
 # Install PHP 5.6
 # RUN dnf -y install php56 php56-php-bcmath php56-php-fpm php56-php-gd php56-php-imap php56-php-intl php56-php-ldap php56-php-mbstring php56-php-mysqlnd php56-php-opcache \\ 
 # php56-php-pdo php56-php-pecl-imagick php56-php-pecl-mongodb php56-php-pecl-xdebug php56-php-pecl-zip php56-php-soap php56-php-tidy php56-php-xml php56-xhprof
@@ -47,6 +44,25 @@ php74-php-tidy php74-php-xml php74-xhprof php74-php-phalcon4
 # Install PHP 8.0
 # RUN dnf -y install php80 php80-php-ast php80-php-bcmath php80-php-fpm php80-php-gd php80-php-imap php80-php-intl php80-php-ldap php80-php-mbstring php80-php-mysqlnd php80-php-opcache \\ 
 # php80-php-pdo php80-php-pecl-imagick php80-php-pecl-mcrypt php80-php-pecl-mongodb php80-php-pecl-xdebug php80-php-pecl-zip php80-php-soap php80-php-sodium php80-php-tidy php80-php-xml php80-xhprof
+
+# Download Oracle Instantclient
+# - Basic
+# - Sqlplus
+# - Tools
+# - Devel
+# RUN wget https://download.oracle.com/otn_software/linux/instantclient/19600/oracle-instantclient19.6-basic-19.6.0.0.0-1.x86_64.rpm
+# RUN wget https://download.oracle.com/otn_software/linux/instantclient/19600/oracle-instantclient19.6-sqlplus-19.6.0.0.0-1.x86_64.rpm
+# RUN wget https://download.oracle.com/otn_software/linux/instantclient/19600/oracle-instantclient19.6-tools-19.6.0.0.0-1.x86_64.rpm
+# RUN wget https://download.oracle.com/otn_software/linux/instantclient/19600/oracle-instantclient19.6-devel-19.6.0.0.0-1.x86_64.rpm
+
+# Install Oracle Instantclient
+# RUN yum install -y oracle-instantclient19.6-basic-19.*.rpm  oracle-instantclient19.6-sqlplus-19.6.*.rpm oracle-instantclient19.6-tools-19.6.*.rpm oracle-instantclient19.6-devel-19.*.rpm
+
+# Install Oracle Instantclient PHP-Extension
+# dnf -y install php56-php-oci8 php70-php-oci8 php71-php-oci8 php72-php-oci8 php73-php-oci8 php74-php-oci8 php80-php-oci8
+
+# Install Phalcon Framework
+# RUN dnf -y install php56-php-phalcon3 php70-php-phalcon3 php71-php-phalcon3 php72-php-phalcon4 php73-php-phalcon4 php74-php-phalcon4
 
 # Copy PHP-FPM Config Files
 # COPY .docker/php56/www.conf /etc/opt/remi/php56/php-fpm.d/www.conf
